@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light)
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 14px;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    font-family: poppins,sans-serif;
+    font-size: 0.88rem;
+    background-color: var(--color-background);
+    user-select: none;
+    overflow-y: hidden;
+    color: var(--color-dark);
+}
+
+.container{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.2rem;
+    grid-template-columns: 14rem auto 23rem;
+}
+
+a{
+    color: var(--color-dark);
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2{
+    font-size: 1.4rem;
+}
+
+h3{
+    font-size: 0.87rem;
+}
+
+h4{
+    font-size: 0.8rem;
+}
+
+h5{
+    font-size: 0.77rem;
+}
+
+small{
+    font-size: 0.75rem;
+}
+
+.profile-photo{
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted{
+    color: var(--color-info-dark);
+}
+
+p{
+    color: var(--color-dark-variant);
+}
+
+b{
+    color: var(--color-dark);
+}
+
+.primary{
+    color: var(--color-primary);
+}
+
+.danger{
+    color: var(--color-danger);
+}
+
+.success{
+    color: var(--color-success);
+}
+
+.warning{
+    color: var(--color-warning);
+}
+
+aside{
+    height: 100vh;
+}
+
+aside .top{
+    background-color: white;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    /* margin-top: 1.4rem; */
+    margin-bottom : 1rem;
+    padding: 10px;
+}
+aside .close{
+    display: none;
+}
+aside .top .logo{
+    display: flex;
+    gap: 0.8rem;
+}
+aside .top img{
+    background-color: white;
+    width: 2rem;
+    height: 2rem;
+}
+
+/* =========================SideBar==================================== */
+
+.sidebar{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+    /* top: 3rem; */
+}
+aside h3{
+    font-weight: 500;
+}
+aside .sidebar a{
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.1rem;
+    transform: all 300ms ease;
+}
+aside .sidebar a span{
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+aside .sidebar a.active{
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0;
+}
+aside .sidebar a.active::before{
+    content: '';
+    width: 6px;
+    height: 100%;
+    background-color: var(--color-primary);
+}
+aside .sidebar a.active span{
+    color: var(--color-primary);
+    margin-left: calc(1rem-6px);
+}
+aside .sidebar a:hover{
+    color: var(--color-primary);
+}
+aside .sidebar a:hover span{
+    margin-left: 1rem;
+}
+aside .sidebar .msg-cnt{
+    background-color: var(--color-danger);
+    color: white;
+    padding: 2px 10px;
+    font-size: 11px;
+    border-radius: var(--border-radius-1);
+}
+
+/* ====================================================================================================== */
+/* ====================================================================================================== */
+/* ====================================================================================================== */
+/* ====================================================================================================== */
+/* Grid layout for displaying plan cards in a responsive manner */
+
+/* Style for individual plan cards */
+.plan-card {
+    background-color: var(--color-white); /* White background for cards */
+    border-radius: var(--card-border-radius); /* Rounded corners */
+    padding: var(--card-padding); /* Padding inside the card */
+    box-shadow: var(--box-shadow); /* Shadow effect */
+    text-align: center; /* Center-align text */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for plan cards */
+.plan-card:hover {
+    transform: translateY(-10px); /* Slightly lift the card on hover */
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2); /* More intense shadow */
+}
+
+/* Styling for the plan name inside the card */
+.plan-card h3 {
+    color: var(--color-primary); /* Primary color for the title */
+    margin-bottom: 0.5rem; /* Margin below the title */
+}
+
+/* Styling for plan details like speed, price, and validity */
+.plan-card p {
+    color: var(--color-dark-variant); /* Darker text color for the details */
+    margin-bottom: 0.5rem; /* Margin below each detail */
+}
+
+/* Button to manage plans */
+#managePlansBtn {
+    margin-top: 2rem; /* Space above the button */
+    padding: 1rem 2rem; /* Padding inside the button */
+    background-color: var(--color-primary); /* Primary color for the button */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 600ms ease; /* Smooth color transition on hover */
+}
+
+/* Hover effect for the manage plans button */
+
+/* Modal background */
+.modal {
+    display: none; /* Hide modal by default */
+    position: fixed; /* Fixed positioning */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full-screen width */
+    height: 100%; /* Full-screen height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center; /* Center modal content horizontally */
+    align-items: center; /* Center modal content vertically */
+}
+
+/* Modal content style */
+.modal-content {
+    background: white; /* White background */
+    padding: 2rem; /* Padding inside the modal */
+    border-radius: 10px; /* Rounded corners */
+    width: 50%; /* Width of the modal */
+    max-width: 500px; /* Maximum width of the modal */
+    position: relative; /* Position relative for close button */
+    animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+}
+
+/* Animation for fading in the modal */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start with opacity 0 */
+        transform: scale(0.9); /* Start scaled down */
+    }
+    to {
+        opacity: 1; /* End with full opacity */
+        transform: scale(1); /* End with normal scale */
+    }
+}
+
+/* Close button for the modal */
+.close {
+    position: absolute; /* Position absolutely within the modal */
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem; /* Larger font size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Tabs in the modal for Add Plan and Update Plan */
+.tabs {
+    display: flex; /* Display tabs in a row */
+    justify-content: space-around; /* Space out tabs evenly */
+    margin-bottom: 1rem; /* Space below the tabs */
+}
+
+/* Individual tab link styling */
+.tab-link {
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    font-size: 1rem; /* Font size for the tab */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 0.5rem 1rem; /* Padding inside the tab */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Active tab styling */
+.tab-link.active {
+    background-color: var(--color-primary); /* Primary color for the active tab */
+    color: white; /* White text for the active tab */
+    border-radius: 5px; /* Rounded corners for the active tab */
+}
+
+/* Content of each tab (hidden by default) */
+.tab-content {
+    display: none; /* Hide inactive content */
+}
+
+/* Show active tab content */
+.tab-content.active {
+    display: block; /* Display active content */
+}
+
+/* Style for each form group (label + input/select) */
+.form-group {
+    margin-bottom: 1rem; /* Space between form groups */
+}
+
+/* Label styling */
+.form-group label {
+    display: block; /* Block-level label */
+    margin-bottom: 0.5rem; /* Space below the label */
+    font-weight: bold; /* Bold text for labels */
+}
+
+/* Styling for input and select elements */
+.form-group input,
+.form-group select {
+    width: 100%; /* Full width */
+    padding: 0.5rem; /* Padding inside input/select */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Base button style */
+.btn {
+    padding: 0.75rem 1.5rem; /* Padding inside the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+/* Primary button style */
+.btn-primary {
+    background-color: var(--color-primary); /* Primary color for the button */
+    color: white; /* White text color */
+    transition: all 600ms ease;
+}
+
+/* Hover effect for primary button */
+.btn-primary:hover {
+    transform: scale(1.03);
+    background-color: var(--color-primary-variant); /* Darker color when hovered */
+    color: var(--color-white); /* Darker color when hovered */
+}
+
+/* Secondary button style */
+.btn-secondary {
+    background-color: #6c757d; /* Gray background */
+    color: white; /* White text color */
+}
+
+/* Hover effect for secondary button */
+.btn-secondary:hover {
+    background-color: #5a6268; /* Darker gray when hovered */
+}
+
+
+/* ====================================================================================================== */
+/* ====================================================================================================== */
+/* ====================================================================================================== */
+/* ====================================================================================================== */
+
+
+/* Make the main container take full height of the viewport */
+body, html {
+    min-height: 100%;
+    margin: 0;
+}
+
+/* Container should take full height */
+.container {
+    display: flex;
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* Sidebar stays fixed on the left */
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; /* Fixed width for the sidebar */
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4; /* Example background */
+    /* padding: 2rem 1rem; */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    scroll-behavior: smooth;
+}
+
+/* Main content will take the remaining width */
+        main {
+            min-width: 80vw;
+            margin-left: 250px; /* Offset by sidebar width */
+            padding: 2rem;
+            overflow: auto; /* Allow scrolling if needed */
+            height: 100vh;
+        }
+
+/* Plan cards section should scroll if content overflows */
+.plans {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ensure cards fill the row */
+    gap: 1.5rem; /* Space between grid items */
+    margin-top: 2rem; /* Space above the grid */
+    max-height: calc(100vh - 120px); /* Adjust based on header height */
+    overflow-y: auto; /* Allow vertical scroll when the content overflows */
+    padding: 2rem; /* Space at the bottom for scrolling */
+    scroll-behavior: smooth;
+}
+
+/* Styling for individual plan cards */
+.plan-card {
+    background-color: var(--color-white); /* White background for cards */
+    border-radius: var(--card-border-radius); /* Rounded corners */
+    padding: var(--card-padding); /* Padding inside the card */
+    box-shadow: var(--box-shadow); /* Shadow effect */
+    text-align: center; /* Center-align text */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for plan cards */
+.plan-card:hover {
+    transform: translateY(-10px); /* Slightly lift the card on hover */
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2); /* More intense shadow */
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Stack the sidebar and main content */
+    }
+    aside {
+        position: fixed;
+        width: 70%; /* Adjust sidebar width for smaller screens */
+        z-index: 100; /* Ensure sidebar stays on top */
+    }
+    main {
+        margin-left: 0;
+    }
+}
+

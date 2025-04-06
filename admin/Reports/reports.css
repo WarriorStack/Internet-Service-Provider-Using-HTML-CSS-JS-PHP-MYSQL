@@ -1,0 +1,198 @@
+/* Ensure body and HTML don't overflow */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    display: flex;
+}
+
+/* Correctly position container */
+.main-content {
+    width: calc(100vw - 20vw); /* Remaining width */
+    margin-left: 20vw; /* Prevent overlap with dashboard */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5vh 2vw;
+}
+
+
+/* Default (Light Theme) Scrollbar */
+main {
+    max-height: 100vh; /* Ensure the sidebar is scrollable */
+    overflow-y: auto; /* Enable vertical scrolling */
+    scrollbar-width: thin; /* Works in Firefox */
+    scrollbar-color: #ccc #f1f1f1; /* Scrollbar color */
+}
+
+/* Scrollbar for WebKit browsers (Chrome, Edge, Safari) */
+main::-webkit-scrollbar {
+    width: 8px; /* Thin scrollbar */
+}
+
+main::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light track */
+    border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: #4fa6ee; /* Light gray scrollbar */
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+    background: #aaa; /* Slightly darker on hover */
+}
+
+/* Dark Theme Scrollbar */
+body.dark main {
+    scrollbar-color: #555 #222;
+}
+
+body.dark main::-webkit-scrollbar-track {
+    background: #222; /* Dark track */
+}
+
+body.dark main::-webkit-scrollbar-thumb {
+    background: #cd50ec; /* Dark gray scrollbar */
+}
+
+body.dark main::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Lighter on hover */
+}
+
+/* Content Box */
+.container {
+    width: 100%;
+    max-width: 80vw;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Ensures items are stacked */
+    align-items: center;
+}
+
+.container:hover {
+    transform: scale(1.01);
+}
+
+/* Table Container (Ensures Vertical Layout) */
+.table-container {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Table Styling */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.styled-table th {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.styled-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.styled-table tr:hover {
+    background: #f1f1f1;
+}
+
+/* Buttons */
+.download-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.2s ease-in-out, transform 0.2s;
+}
+
+.download-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Dropdown Styling */
+.dropdown {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 250px;
+}
+
+/* Ensuring dropdown & buttons are aligned vertically */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .container {
+        width: 95%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .styled-table th, .styled-table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .download-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+
+
+
+

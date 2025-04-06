@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed - Internet Service Provider</title>
+    <link rel="stylesheet" href="main.css">
+  
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll("nav .rightNavEle");
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", function () {
+                    const sectionId = this.getAttribute("data-section");
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                <div>SpeedNet</div>
+            </div>
+            <div class="right">
+                <div class="rightNavEle"><a href="#Home">Home</a></div>
+                <div class="rightNavEle"><a href="#Features">Features</a></div>
+                <div class="rightNavEle"><a href="#Plan">Plan</a></div>
+                <div class="rightNavEle"><a href="#Testimonials">Testimonials</a></div>
+                <div class="rightNavEle"><a href="#contactUs">Support</a></div>
+                <button class="blueBtn" onclick="window.location.href='loginPage.php'">Login</button>
+
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        
+        <div id="Home">
+            <iframe src="Main/Home.html"  scrolling="no"></iframe>
+        </div>
+
+        <div id="Features">
+            <iframe src="Main/Features.html" class="featurePage" scrolling="no"></iframe>
+        </div>
+
+        <div id="Plan">
+            <iframe src="Main/Plan.php" class="planPage" scrolling="no"></iframe>
+        </div>
+        
+        <div id="Testimonials">
+            <iframe src="Main/testimonial.php" class="testimonialPage" scrolling="no"></iframe>
+        </div>  
+
+        <div id="contactUs">
+            <iframe src="Main/ContactUs.html"  scrolling="no"></iframe>
+         </div>
+
+        <div id="footer">
+            <iframe src="Main/footer.html"  scrolling="no"></iframe>
+         </div>
+
+         
+        
+    </main>
+</body>
+<script>
+function resizeIframe(iframe) {
+    if (!iframe || !iframe.contentWindow || !iframe.contentWindow.document) return;
+
+    try {
+        let contentHeight = iframe.contentWindow.document.body.scrollHeight || iframe.contentWindow.document.documentElement.scrollHeight;
+
+        // Adjust height dynamically without excessive constraints
+        let newHeight = Math.max(contentHeight, 300); // 300px minimum height
+
+        iframe.style.height = newHeight + "px"; // Use 'px' instead of 'vh' for accurate rendering
+    } catch (error) {
+        console.error("Resize error:", error); // Handles cross-origin iframe errors
+    }
+}
+
+// Apply to all iframes
+document.querySelectorAll("iframe").forEach(iframe => {
+    iframe.onload = () => resizeIframe(iframe);
+    window.addEventListener('resize', () => resizeIframe(iframe));
+});
+</script>
+</html>

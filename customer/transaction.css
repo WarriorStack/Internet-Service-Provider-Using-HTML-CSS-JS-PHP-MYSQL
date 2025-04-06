@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light)
+}
+
+main {
+    padding: var(--padding-1);
+    flex-grow: 1;
+    margin-left: 18rem;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+main.loaded {
+    opacity: 1;
+}
+
+.transaction-section {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    gap: 2rem;
+    overflow-x: hidden;
+}
+
+/* .transaction-form {
+    width: 40%;
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+} */
+
+.transaction-history:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* .transaction-form input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: var(--border-radius-1);
+    border: 1px solid var(--color-light);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+} */
+
+/* .transaction-form input:focus {
+    border-color: var(--color-primary);
+} */
+
+/* .transaction-form .submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-1);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+} */
+/* 
+.transaction-form .submit-btn:hover {
+    background-color: var(--color-primary-variant);
+    transform: scale(1.05);
+} */
+
+.transaction-history {
+    width: 80%;
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    overflow-y: auto;
+    max-height: 400px;
+    margin: 3rem;
+}
+
+.transaction-history table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transaction-history table th,
+.transaction-history table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-light);
+}
+
+.transaction-history table th {
+    background-color: var(--color-info-light);
+}
+
+.transaction-history table tr:hover {
+    background-color: var(--color-light);
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -75px;
+    background-color: var(--color-success);
+    color: var(--color-white);
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: visibility 0s, opacity 0.5s ease-in-out, transform 0.3s ease;
+}
+
+.toast.error {
+    background-color: var(--color-danger);
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.hide {
+    transform: translateY(100px);
+    opacity: 0;
+}
+.download-btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    border-radius: var(--border-radius-1);
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: var(--color-primary-variant);
+    transform: scale(1.05);
+}
+
+.no-invoice {
+    color: var(--color-info-dark);
+    font-size: 14px;
+    font-weight: 500;
+}

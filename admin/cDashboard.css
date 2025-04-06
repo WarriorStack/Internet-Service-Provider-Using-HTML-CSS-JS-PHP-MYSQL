@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light)
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}   
+
+html{
+    font-size: 14px;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    font-family: poppins,sans-serif;
+    font-size: 0.88rem;
+    background-color: var(--color-background);
+    user-select: none;
+    overflow-y: hidden;
+    color: var(--color-dark);
+}
+
+
+
+/* ================================================================================Main============================================================================ */
+
+
+main{
+    margin-top: 1.4rem;
+    margin-left: 20vw;
+}
+main .date{
+    display: inline-block;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius-1);
+    margin-top: 1rem;
+    padding: 0.5rem 0.6rem;
+}
+main .date input[type='date']{
+    background-color: transparent;
+    color: var(--color-dark);
+}
+main .insights{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.6rem;
+}
+main .insights > div{
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+main .insights > div:hover{
+    box-shadow: none;
+}
+main .insights > div span{
+    background-color: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+main .insights > div.expence span{
+    background-color: var(--color-danger);
+}
+main .insights > div.income span{
+    background-color: var(--color-success);
+}
+main .insights > div .middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main .insights h3{
+    margin: 1rem 0rem 0.6rem;
+    font-size: 1rem;
+}
+main .insights .progress{
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+main .insights svg{
+    width: 7rem;
+    height: 7rem;
+}
+main .insights svg circle{
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+main .insights .sales svg circle{
+    stroke-dasharray: 200;
+    stroke-dashoffset: -30;
+}
+main .insights .expences svg circle{
+    stroke-dasharray: 80;
+    stroke-dashoffset: 20;
+}
+main .insights .income svg circle{
+    stroke-dasharray: 35;
+    stroke-dashoffset: 110;
+}
+main .insights .progress .number{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* ================================================================================ Recent Orders ============================================================================ */
+
+main .recent-orders{
+    margin-top: 2rem;
+}
+
+main .recent-orders h2{
+    margin-bottom: 1rem;
+}
+
+main .recent-orders table{
+    background-color: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+main .recent-orders table:hover{
+    box-shadow: none;
+}
+
+main .recent-orders table tbody td{
+    height: 3rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);   
+}
+
+main .recent-orders table tbody tr:last-child td{
+    border: none;
+}
+
+main .recent-orders a{
+    margin: 1rem auto;
+    color: var(--color-primary);
+    text-align: center;
+    display: block;
+}
+
+
+
+
+/* Default (Light Theme) Scrollbar */
+main {
+    max-height: 100vh; /* Ensure the sidebar is scrollable */
+    overflow-y: auto; /* Enable vertical scrolling */
+    scrollbar-width: thin; /* Works in Firefox */
+    scrollbar-color: #ccc #f1f1f1; /* Scrollbar color */
+}
+
+/* Scrollbar for WebKit browsers (Chrome, Edge, Safari) */
+main::-webkit-scrollbar {
+    width: 8px; /* Thin scrollbar */
+}
+
+main::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light track */
+    border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: #4fa6ee; /* Light gray scrollbar */
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+    background: #aaa; /* Slightly darker on hover */
+}
+
+/* Dark Theme Scrollbar */
+body.dark main {
+    scrollbar-color: #555 #222;
+}
+
+body.dark main::-webkit-scrollbar-track {
+    background: #222; /* Dark track */
+}
+
+body.dark main::-webkit-scrollbar-thumb {
+    background: #cd50ec; /* Dark gray scrollbar */
+}
+
+body.dark main::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Lighter on hover */
+}

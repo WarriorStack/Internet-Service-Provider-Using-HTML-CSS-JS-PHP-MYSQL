@@ -1,0 +1,202 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light)
+}
+/* General container and layout styles */
+main {
+    padding: var(--padding-1);
+    flex-grow: 1;
+    margin-left: 18rem;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in-out; /* Fade-in effect */
+}
+
+main.loaded {
+    opacity: 1; /* Fade in once content is loaded */
+}
+
+/* Complaint section styles with smooth scroll */
+.complaint-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    overflow-x: hidden;
+}
+
+/* Complaint form styles with shadow effect */
+.complaint-form {
+    width: 40%;
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.complaint-form:hover {
+    transform: translateY(-5px); /* Slight hover effect */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+}
+
+.complaint-form h3 {
+    margin-bottom: 1rem;
+}
+
+.complaint-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: var(--border-radius-1);
+    border: 1px solid var(--color-light);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.complaint-form textarea:focus {
+    border-color: var(--color-primary); /* Highlight border on focus */
+}
+
+.complaint-form .submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-1);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.complaint-form .submit-btn:hover {
+    background-color: var(--color-primary-variant);
+    transform: scale(1.05); /* Slight grow effect */
+}
+
+/* Complaint history table styles with hover and box shadow */
+.complaint-history {
+    width: 55%;
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Shadow effect */
+    overflow-y: auto; /* Add vertical scroll if content exceeds */
+    max-height: 400px; /* Set a max height for scrollable content */
+}
+
+.complaint-history table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.complaint-history table th,
+.complaint-history table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-light);
+}
+
+.complaint-history table th {
+    background-color: var(--color-info-light);
+}
+
+.complaint-history table tr:hover {
+    background-color: var(--color-light);
+    transform: scale(1.02); /* Slight grow effect on hover */
+    transition: transform 0.3s ease;
+}
+
+/* Smooth scrolling for table if there are many complaints */
+.complaint-history::-webkit-scrollbar {
+    width: 8px;
+}
+
+.complaint-history::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 10px;
+}
+
+.complaint-history::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-primary-variant);
+}
+
+/* Toast styles with animation and shadow */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: var(--color-success); /* Blue for success */
+    color: var(--color-white);
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for toast */
+    transition: visibility 0s, opacity 0.5s ease-in-out, transform 0.3s ease;
+}
+
+.toast.error {
+    background-color: var(--color-danger); /* Red for error */
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0); /* Toast entry animation */
+}
+
+.toast.hide {
+    transform: translateY(100px); /* Toast exit animation */
+    opacity: 0;
+}
+
+/* Button hover effect with smooth transition */
+.complaint-form .submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-1);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.complaint-form .submit-btn:hover {
+    background-color: var(--color-primary-variant);
+    transform: scale(1.05); /* Slight grow effect */
+}
+
+/* Table row hover effect */
+.complaint-history table tr:hover {
+    background-color: var(--color-light);
+    transform: scale(1.02); /* Slight grow effect on hover */
+    transition: transform 0.3s ease;
+}

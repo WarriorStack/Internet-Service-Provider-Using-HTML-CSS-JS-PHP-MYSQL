@@ -1,0 +1,171 @@
+/* General Section Styling */
+.secondDark {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.darkShaded .upperText {
+    text-align: center;
+    /* margin-bottom: 3rem; */
+    margin-top: 3rem;
+    font-size: 1.5rem;
+}
+
+/* Swiper Settings */
+.swiper {
+    width: 70%;
+    padding: 10rem 10rem 10rem 3rem;
+}
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Plan Card Styling */
+.plan {
+    background: #282a36;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    min-width: 270px;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Neon Glow Effect */
+.plan::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+/* Smooth Hover Effects */
+.plan:hover {
+    transform: perspective(1000px) scale(1.06);
+    box-shadow: 0 12px 24px rgba(0, 255, 255, 0.3);
+    border-color: rgba(139, 233, 253, 0.8);
+}
+
+/* Neon Glow Animation on Hover */
+.plan:hover::before {
+    opacity: 1;
+    animation: neonGlow 1.5s infinite alternate;
+}
+
+/* Card Text Styling */
+.plan h2 {
+    color: #8be9fd;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.plan p {
+    color: #f8f8f2;
+    font-size: 18px;
+}
+
+.plan ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.plan ul li {
+    color: #50fa7b;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* CTA Button */
+.plan .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #6272a4;
+    color: #f8f8f2;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.plan .btn:hover {
+    background: #50fa7b;
+    color: #282a36;
+    transform: scale(1.08);
+}
+
+/* Swiper Navigation */
+.swiper-button-prev, .swiper-button-next {
+    color: #8be9fd;
+    width: 48px;
+    height: 48px;
+    background: rgba(68, 71, 90, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Navigation Button Hover */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background: #50fa7b;
+    color: #282a36;
+    transform: scale(1.15);
+}
+
+/* Swiper Pagination */
+.swiper-pagination {
+    margin-top: 15px;
+}
+
+/* Animation for Neon Glow */
+@keyframes neonGlow {
+    0% {
+        filter: blur(3px);
+        opacity: 0.7;
+    }
+    100% {
+        filter: blur(6px);
+        opacity: 1;
+    }
+}
+
+/* Responsive Swiper */
+@media (max-width: 1024px) {
+    .swiper {
+        width: 95%;
+    }
+
+    .plan {
+        min-width: 230px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .swiper {
+        width: 100%;
+    }
+
+    .plan {
+        min-width: 100%;
+        padding: 18px;
+    }
+}

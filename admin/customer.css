@@ -1,0 +1,107 @@
+main{
+    margin-left: 20rem;
+}
+
+.recent-orders{
+    margin-top: 2rem;
+}
+
+.recent-orders h2{
+    margin-bottom: 1rem;
+}
+
+.recent-orders table{
+    background-color: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.recent-orders table:hover{
+    box-shadow: none;
+}
+
+.recent-orders table tbody td{
+    height: 3rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);   
+}
+
+/* Default (Light Theme) Scrollbar */
+.recent-orders {
+    max-height: 100vh; /* Ensure the sidebar is scrollable */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: auto; /* Enable vertical scrolling */
+    scrollbar-width: thin; /* Works in Firefox */
+    scrollbar-color: #ccc #f1f1f1; /* Scrollbar color */
+}
+
+/* Scrollbar for WebKit browsers (Chrome, Edge, Safari) */
+.recent-orders::-webkit-scrollbar {
+    width: 8px; /* Thin scrollbar */
+}
+
+.recent-orders::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light track */
+    border-radius: 10px;
+}
+
+.recent-orders::-webkit-scrollbar-thumb {
+    background: #ccc; /* Light gray scrollbar */
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.recent-orders::-webkit-scrollbar-thumb:hover {
+    background: #aaa; /* Slightly darker on hover */
+}
+
+/* Dark Theme Scrollbar */
+body.dark .recent-orders {
+    scrollbar-color: #555 #222;
+}
+
+body.dark .recent-orders::-webkit-scrollbar-track {
+    background: #222; /* Dark track */
+}
+
+body.dark .recent-orders::-webkit-scrollbar-thumb {
+    background: #555; /* Dark gray scrollbar */
+}
+
+body.dark .recent-orders::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Lighter on hover */
+}
+
+ /* Filter Container Styling */
+ .filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.filter-container input,
+.filter-container select {
+    width: 48%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.filter-container input:focus,
+.filter-container select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}

@@ -1,0 +1,86 @@
+
+.firstLight{    
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+}
+.firstLight .upperText{
+    margin-top: 5rem;
+    text-align: center;
+}
+.firstLight .upperText h2{
+    font-size: 36px;
+    font-weight: 700;
+    padding: 15px;
+}
+.firstLight .upperText p{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.features {
+    text-align: center;
+    padding: 2rem;
+}
+
+.features h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.features p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+}
+
+.icon img {
+    height: 30px;
+    width: 30px;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: #666;
+}

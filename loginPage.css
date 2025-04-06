@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blueCircle {
+    position: absolute;
+    z-index: -1000;
+    width: 70vw;
+    height: 65vh;
+    border-radius: 50%;
+    background-color: #0057b36c; /* Ensure the color is semi-transparent */
+    box-shadow: 0px 1px 20px 20px #0056b3;
+    filter: blur(8px);
+    animation: backBlured 30s infinite alternate ease-in-out;
+}
+
+@keyframes backBlured {
+    0%, 100% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    background: #121212;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Left Section - Login Form */
+.login-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-section h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.login-section p {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 40px 12px 12px;
+    font-size: 14px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: #1c1c1c;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-group .icon {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    color: #777;
+}
+
+.form-group .icon:hover {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 20px;
+}
+
+.form-actions label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.form-actions input {
+    margin-right: 8px;
+}
+
+.form-actions a {
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-actions a:hover {
+    color: #0056b3;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+.signup {
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.signup a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup a:hover {
+    color: #0056b3;
+}
+
+/* Right Section - Info */
+.info-section {
+    flex: 1;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    background-size: 200% 200%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    border-radius: 16px;
+    animation: gradientFlow 8s ease-in-out infinite, fadeIn 1s ease-out;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.info-section .icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.info-section h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.info-section p {
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .info-section {
+        padding: 20px;
+    }
+}
+
+
+
+.form-group {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 16px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: #1c1c1c;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Floating Label */
+.form-group label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+/* Move label up when input is focused or has a value */
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label {
+    top: -15px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: lightblue;
+}
+
+

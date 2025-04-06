@@ -1,0 +1,66 @@
+main{
+    margin-left: 20rem;
+}
+
+
+/* Style for individual plan cards */
+.plan-card {
+    background-color: var(--color-white); /* White background for cards */
+    border-radius: var(--card-border-radius); /* Rounded corners */
+    padding: var(--card-padding); /* Padding inside the card */
+    box-shadow: var(--box-shadow); /* Shadow effect */
+    text-align: center; /* Center-align text */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for plan cards */
+.plan-card:hover {
+    transform: translateY(-10px); /* Slightly lift the card on hover */
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2); /* More intense shadow */
+}
+
+/* Styling for the plan name inside the card */
+.plan-card h3 {
+    color: var(--color-primary); /* Primary color for the title */
+    margin-bottom: 0.5rem; /* Margin below the title */
+}
+
+/* Styling for plan details like speed, price, and validity */
+.plan-card p {
+    color: var(--color-dark-variant); /* Darker text color for the details */
+    margin-bottom: 0.5rem; /* Margin below each detail */
+}
+
+
+/* ====================================================================================================== */
+/* ====================================================================================================== */
+/* ====================================================================================================== */
+/* ====================================================================================================== */
+
+/* Plan cards section should scroll if content overflows */
+.plans {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ensure cards fill the row */
+    gap: 1.5rem; /* Space between grid items */
+    margin-top: 2rem; /* Space above the grid */
+    max-height: calc(100vh - 120px); /* Adjust based on header height */
+    overflow-y: auto; /* Allow vertical scroll when the content overflows */
+    padding: 2rem; /* Space at the bottom for scrolling */
+    scroll-behavior: smooth;
+}
+
+/* Styling for individual plan cards */
+.plan-card {
+    background-color: var(--color-white); /* White background for cards */
+    border-radius: var(--card-border-radius); /* Rounded corners */
+    padding: var(--card-padding); /* Padding inside the card */
+    box-shadow: var(--box-shadow); /* Shadow effect */
+    text-align: center; /* Center-align text */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for plan cards */
+.plan-card:hover {
+    transform: translateY(-10px); /* Slightly lift the card on hover */
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2); /* More intense shadow */
+}

@@ -1,0 +1,237 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light)
+}
+
+
+/* Main content will take the remaining width */
+main {
+    min-width: 80vw;
+    margin-left: 250px; /* Offset by sidebar width */
+    padding: 2rem;
+    overflow: auto; /* Allow scrolling if needed */
+    height: 100vh;
+}
+
+/* Plan cards section should scroll if content overflows */
+.plans {
+    display: flex; /* Use flex layout */
+    flex-direction: column;
+    gap: 1.5rem; /* Space between grid items */
+    margin-top: 2rem; /* Space above the grid */
+    max-height: calc(100vh - 120px); /* Adjust based on header height */
+    overflow-y: auto; /* Allow vertical scroll when the content overflows */
+    padding: 2rem; /* Space at the bottom for scrolling */
+    scroll-behavior: smooth;
+}
+
+/* Styling for individual plan cards */
+.plan-card {
+    background-color: var(--color-white); /* White background for cards */
+    border-radius: var(--card-border-radius); /* Rounded corners */
+    padding: var(--card-padding); /* Padding inside the card */
+    box-shadow: var(--box-shadow); /* Shadow effect */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for plan cards */
+.plan-card:hover {
+    transform: translateY(-10px); /* Slightly lift the card on hover */
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2); /* More intense shadow */
+}
+
+/* Plan card titles */
+.plan-card h2 {
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 1.8rem;
+}
+
+/* Form styling */
+.plan-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.plan-card form label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--color-dark-gray);
+}
+
+.plan-card form input,
+.plan-card form button {
+    font-size: 1rem;
+    padding: 0.8rem;
+    border: 1px solid var(--color-light-gray);
+    border-radius: var(--card-border-radius);
+}
+
+/* Input fields */
+.plan-card form input {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--color-light);
+}
+
+/* Buttons */
+.plan-card form button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.plan-card form button:hover {
+        transform: scale(1.03);
+        background-color: var(--color-primary-variant); /* Darker color when hovered */
+        color: var(--color-white); /* Darker color when hovered */
+}
+/* Profile Photo Section */
+.profile-photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: var(--card-padding);
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease-in-out;
+    /* display: block; */
+    margin: auto;
+}
+.profile-photo-section img{ 
+    height: 10rem;
+    width: 10rem;
+}
+
+.profile-photo:hover {
+    transform: scale(1.1);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 1.5rem;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-2);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background: var(--color-primary-variant);
+    transform: scale(1.05);
+}
+
+/* Edit Button Animation */
+#editBtn{
+    background-color: var(--color-primary);
+    animation: pulse 10s infinite;
+    width: 6rem;
+    height: 4rem;
+    border-radius: 50%;
+    color: var(--color-white);
+}
+#editBtn.editing {
+    background-color: var(--color-danger);
+    animation: pulse 1s infinite;
+}
+/* Success Notification Styles */
+.success-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: var(--color-white);
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1000;
+}
+
+.success-notification.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Stack the sidebar and main content */
+    }
+    aside {
+        position: fixed;
+        width: 70%; /* Adjust sidebar width for smaller screens */
+        z-index: 100; /* Ensure sidebar stays on top */
+    }
+    main {
+        margin-left: 0;
+    }
+}
+

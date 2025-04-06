@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - SpeedNet</title>
+    <link rel="stylesheet" href="Home.css">
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="darkShaded">
+        <div id="Home" class="firstDark">
+            <div class="left">
+                <div class="fChild">Lightning Fast <span>Internet</span> For Your Digital Life</div>
+                <div class="sChild">
+                    Experience blazing fast speeds up to 1 Gbps with 99.9% uptime guarantee. Stream, game, and work
+                    without interruption.
+                </div>
+                <div>
+                    <button class="blueBtn">View Plan</button>
+                    <button class="greyBtn">Check Coverage</button>
+                </div>
+                <div>
+                    <ul>
+                        <li>No Contract</li>
+                        <li>24/7 Support</li>
+                        <li>Free Installation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <div class="speed-test-card">
+                    <h2>Speed Test</h2>
+                    <div class="icon-refresh">⟳</div>
+                    <div class="progress-bar-container">
+                        <div id="pb" class="progress-bar"></div>
+                    </div>
+                    <div class="speed-info">
+                        <span>Download Speed</span>
+                        <span id="result">000 Mbps</span>
+                    </div>
+                    <button class="test-button" onclick="speedCalc()">Test Your Speed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function speedCalc() {
+            let fileSize = 1024 * 1024; // 1MB file
+            let url = "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg"; // Sample image
+
+            let startTime = new Date().getTime();
+            let img = new Image();
+
+            img.onload = function () {
+                let endTime = new Date().getTime();
+                let duration = (endTime - startTime) / 1000;
+                let speedMbps = ((fileSize * 8) / duration) / (1024 * 1024);
+
+                let pb = document.getElementById("pb");
+                pb.style.width = speedMbps + "%";
+                document.getElementById("result").innerText = `Download Speed: ${speedMbps.toFixed(2)} Mbps`;
+            };
+
+            img.src = url + "?t=" + startTime; // Prevent caching
+        }
+    </script>
+</body>
+</html>

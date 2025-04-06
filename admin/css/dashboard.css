@@ -1,0 +1,654 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light)
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    border: 0;
+    outline: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+
+
+html{
+    font-size: 14px;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    font-family: poppins,sans-serif;
+    font-size: 0.88rem;
+    background-color: var(--color-background);
+    user-select: none;
+    overflow-y: hidden;
+    color: var(--color-dark);
+}
+body *{
+    transition: all 300ms ease;
+}
+
+.container{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.2rem;
+    grid-template-columns: 14rem auto 23rem;
+}
+
+a{
+    color: var(--color-dark);
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2{
+    font-size: 1.4rem;
+}
+
+h3{
+    font-size: 0.87rem;
+}
+
+h4{
+    font-size: 0.8rem;
+}
+
+h5{
+    font-size: 0.77rem;
+}
+
+small{
+    font-size: 0.75rem;
+}
+
+.profile-photo{
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted{
+    color: var(--color-info-dark);
+}
+
+p{
+    color: var(--color-dark-variant);
+}
+
+b{
+    color: var(--color-dark);
+}
+
+.primary{
+    color: var(--color-primary);
+}
+
+.danger{
+    color: var(--color-danger);
+}
+
+.success{
+    color: var(--color-success);
+}
+
+.warning{
+    color: var(--color-warning);
+}
+
+/* Default (Light Theme) Scrollbar */
+aside {
+    max-height: 100vh; /* Ensure the sidebar is scrollable */
+    overflow-y: auto; /* Enable ve  rtical scrolling */
+    scrollbar-width: thin; /* Works in Firefox */
+    scrollbar-color: #ccc #f1f1f1; /* Scrollbar color */
+}
+
+/* Scrollbar for WebKit browsers (Chrome, Edge, Safari) */
+aside::-webkit-scrollbar {
+    width: 8px; /* Thin scrollbar */
+}
+
+aside::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light track */
+    border-radius: 10px;
+}
+
+aside::-webkit-scrollbar-thumb {
+    background: #ccc; /* Light gray scrollbar */
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+aside::-webkit-scrollbar-thumb:hover {
+    background: #aaa; /* Slightly darker on hover */
+}
+
+/* Dark Theme Scrollbar */
+body.dark aside {
+    scrollbar-color: #555 #222;
+}
+
+body.dark aside::-webkit-scrollbar-track {
+    background: #222; /* Dark track */
+}
+
+body.dark aside::-webkit-scrollbar-thumb {
+    background: #555; /* Dark gray scrollbar */
+}
+
+body.dark aside::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Lighter on hover */
+}
+
+
+aside{
+    height: 100vh;
+}
+
+aside .top{
+    background-color: var(--color-white);
+    /* display: flex; */
+    justify-content:space-between;
+    align-items: center;
+    padding: 10px;
+}
+aside .close{
+    display: none;
+}
+aside .top .logo {
+    /* display: flex; */
+    align-items: center; /* Center items vertically */
+    gap: 0.8rem;
+}
+aside .top h2{ 
+    display: block;
+    font-size: 3rem;
+    margin-left:10px ;
+}
+aside .top img{
+    display: block;
+    height: 13rem;
+    width: 15rem;
+    margin: auto;
+}
+
+/* =========================SideBar==================================== */
+
+.sidebar{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+    /* top: 3rem; */
+}
+aside h3{
+    font-weight: 500;
+}
+aside .sidebar a{
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.1rem;
+    transform: all 300ms ease;
+}
+aside .sidebar a span{
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+aside .sidebar a.active{
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0;
+}
+aside .sidebar a.active::before{
+    content: '';
+    width: 6px;
+    height: 100%;
+    background-color: var(--color-primary);
+}
+aside .sidebar a.active span{
+    color: var(--color-primary);
+    margin-left: calc(1rem-6px);
+}
+aside .sidebar a:hover{
+    color: var(--color-primary);
+}
+aside .sidebar a:hover span{
+    margin-left: 1rem;
+}
+aside .sidebar .msg-cnt{
+    background-color: var(--color-danger);
+    color: white;
+    padding: 2px 10px;
+    font-size: 11px;
+    border-radius: var(--border-radius-1);
+}
+
+
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* =========================================================================================================================*/
+
+
+
+
+/* Make the main container take full height of the viewport */
+body, html {
+    min-height: 100%;
+    margin: 0;   
+}
+
+/* Container should take full height */
+/* Adjust container to accommodate the fixed sidebar */
+.container {
+    display: flex;
+    min-height: 100vh;
+    /* margin-left: 250px; Add left margin equal to the sidebar's width */
+    /* width: calc(100% - 250px); Ensure container takes full width minus the sidebar */
+}
+
+/* Sidebar stays fixed on the left */
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18rem; /* Fixed width for the sidebar */
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4; /* Example background */
+    /* padding: 2rem 1rem; */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    scroll-behavior: smooth;
+}
+
+main {
+    /* margin-left: 250px; Offset the content to avoid it going under the sidebar */
+    padding: 2rem; /* Add some padding for aesthetics */
+    flex-grow: 1; /* Make sure main content takes up the remaining space */
+}
+
+
+
+
+
+
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+/* =============================================================================================================
+
+*/
+
+
+
+
+/* Define variables for light and dark theme colors */
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light)
+}
+
+/* Light Theme */
+body.light {
+    background-color: var(--color-background);
+    color: var(--color-dark);
+}
+
+body.light .sidebar {
+    background-color: white;
+    color: var(--color-info-dark);
+}
+
+body.light .sidebar a.active {
+    background-color: var(--color-light);
+    color: var(--color-primary);
+}
+
+/* Dark Theme */
+body.dark {
+    background-color: #1e1e1e;
+    color: #ddd;
+}
+/* When dark theme is active */
+body.dark aside .top {
+    background-color: #333; /* Change background color to dark gray */
+}
+body.dark aside{
+    background-color: #333; /* Change background color to dark gray */
+}
+
+/* When light theme is active (you can keep this default for light theme) */
+/* body.light aside .top { */
+    /* background-color: white; Light theme background color */
+/* } */
+
+body.dark .sidebar {
+    background-color: #333;
+    color: #ccc;
+}
+
+body.dark .sidebar a.active {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+aside .sidebar a.active::before{
+    content: '';
+    width: 6px;
+    height: 100%;
+    /* background-color: var(--color-primary); */
+    background-color: var(--color-white);
+}
+
+body.dark .sidebar a.active:hover {
+    background-color: var(--color-dark-variant);
+    color: var(--color-white);
+}
+
+body.dark .sidebar a:hover {
+    color: var(--color-primary);
+}
+
+/* Theme Toggle button styling */
+.theme-toggle {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+.theme-toggle button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff;
+}
+
+/* ===================================================Scroll bar=================================================== */
+/* ===================================================Scroll bar=================================================== */
+
+/* Style for all scrollbars inside the main element, including its children and grandchildren */
+main::-webkit-scrollbar,
+main *::-webkit-scrollbar {
+    width: 12px;  /* Vertical scrollbar width */
+    height: 12px; /* Horizontal scrollbar height */
+}
+
+/* Style for the scrollbar track (background) inside main and all its children */
+main::-webkit-scrollbar-track,
+main *::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Light gray track background */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* Style for the scrollbar thumb (draggable part) inside main and all its children */
+main::-webkit-scrollbar-thumb,
+main *::-webkit-scrollbar-thumb {
+    background-color: #7380ec; /* Thumb color */
+    border-radius: 10px; /* Rounded corners for the thumb */
+    border: 3px solid #f1f1f1; /* Border to contrast with the track */
+}
+
+/* Style for the thumb when hovered inside main and all its children */
+main::-webkit-scrollbar-thumb:hover,
+main *::-webkit-scrollbar-thumb:hover {
+    background-color: #4a5cbb; /* Darker color when hovered */
+}
+
+/* Style for the scrollbar corner (optional) */
+main::-webkit-scrollbar-corner,
+main *::-webkit-scrollbar-corner {
+    background-color: transparent; /* Transparent corner */
+}
+
+/* Dark mode for scrollbars inside main and its children */
+body.dark main::-webkit-scrollbar-track,
+body.dark main *::-webkit-scrollbar-track {
+    background-color: #333; /* Dark track color for dark mode */
+}
+
+body.dark main::-webkit-scrollbar-thumb,
+body.dark main *::-webkit-scrollbar-thumb {
+    background-color: #7380ec; /* Light thumb color for dark theme */
+    border: 3px solid #333; /* Border to match the dark track */
+}
+
+body.dark main::-webkit-scrollbar-thumb:hover,
+body.dark main *::-webkit-scrollbar-thumb:hover {
+    background-color: #4a5cbb; /* Darker thumb color on hover in dark mode */
+}
+
+
+
+
+
+/* ===================================================Main content area=================================================== */
+/* ===================================================Main content area=================================================== */
+
+
+body.dark main {
+    background-color: #181818; /* Dark background for main content area */
+    color: #e0e0e0; /* Lighter text color for content */
+}
+
+
+
+/* ==================================================For Dashboard========================================================= */
+/* ==================================================For Dashboard========================================================= */
+
+/* Main Top area For Dashboard */
+body.dark main .top{
+    background-color: #181818; /* Dark background for main content area */
+    color: var(--color-primary); /* Lighter text color for content */
+}
+/* Main infoSec area For Dashboard */
+body.dark main .infoSec > div{
+    background-color: #181818; /* Dark background for main content area */
+    color: #e0e0e0; /* Lighter text color for content */
+}
+
+
+
+
+
+/* ==================================================For Profile========================================================= */
+/* ==================================================For Profile========================================================= */
+
+
+
+/* Main Top area For Dashboard */
+body.dark main .plans div {
+    background-color: #181818; /* Dark background for main content area */
+    color: var(--color-primary); /* Lighter text color for content */
+}
+
+
+
+
+
+/* ==================================================For Transaction========================================================= */
+/* ==================================================For Transaction========================================================= */
+
+
+
+/* Main Top area For Dashboard */
+body.dark main .transaction-history * {
+    background-color: #181818; /* Dark background for main content area */
+    border: #181818; /* Dark background for main content area */
+    color: var(--color-primary); /* Lighter text color for content */
+}
+
+
+
+body.dark main .transaction-history {
+    width: 80%;
+    background-color: rgba(124, 124, 248, 0.692);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    overflow-y: auto;
+    max-height: 400px;
+    margin: 3rem;
+}
+
+
+/* ==================================================For complaints========================================================= */
+/* ==================================================For complaints========================================================= */
+
+
+/* Main Top area For Dashboard */
+body.dark main * {
+    background-color: #181818; /* Dark background for main content area */
+    border: #181818; /* Dark background for main content area */
+    color: var(--color-primary); /* Lighter text color for content */
+}
+
+
+
+
+
+
+
+
+
+
+/* ================================================================================================================== */
+/* =====================================================.recent-orders============================================================= */
+/* ================================================================================================================== */
+
+
+/* Ensure .recent-orders is scrollable */
+.recent-orders {
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: auto;
+    scrollbar-width: thin; /* Firefox support */
+    scrollbar-color: #ccc #f1f1f1; /* Scrollbar color */
+}
+
+/* Scrollbar for WebKit browsers (Chrome, Edge, Safari) */
+.recent-orders::-webkit-scrollbar {
+    width: 8px; /* Thin scrollbar */
+}
+
+.recent-orders::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light track */
+    border-radius: 10px;
+}
+
+.recent-orders::-webkit-scrollbar-thumb {
+    background: #ccc; /* Light gray scrollbar */
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.recent-orders::-webkit-scrollbar-thumb:hover {
+    background: #aaa; /* Slightly darker on hover */
+}
+
+/* Dark Theme Scrollbar */
+body.dark .recent-orders {
+    scrollbar-color: #555 #222;
+}
+
+body.dark .recent-orders::-webkit-scrollbar-track {
+    background: #222; /* Dark track */
+}
+
+body.dark .recent-orders::-webkit-scrollbar-thumb {
+    background: #555; /* Dark gray scrollbar */
+}
+
+body.dark .recent-orders::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Lighter on hover */
+}

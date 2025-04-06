@@ -1,0 +1,437 @@
+
+/* Testimonials Section */
+#testimonials {
+    min-height: 100vh;
+    background-color: #1a1a2e;
+    color: #ffffff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonial-header h2 {
+    font-size: 2.5rem;
+    color: #8be9fd;
+}
+
+.testimonial-header p {
+    font-size: 1.2rem;
+    color: #f8f8f2;
+    margin-bottom: 30px;
+}
+
+/* Swiper Styling */
+.testimonial-slider {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+/* Testimonial Card - Smooth Advanced Hover Effects */
+.testimonial-card {
+    background: #282a36;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out, border 0.5s ease-in-out;
+}
+
+/* Neon Glowing Effect */
+.testimonial-card::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Smooth Hover Effects */
+.testimonial-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.07);
+    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
+    border-color: rgba(139, 233, 253, 0.8);
+}
+
+/* Neon Glow Animation on Hover */
+.testimonial-card:hover::before {
+    opacity: 1;
+    animation: neonGlow 2s infinite alternate ease-in-out;
+}
+
+/* 3D Tilt Effect with Smoothness */
+.testimonial-card:hover {
+    transform: perspective(1200px) rotateX(8deg) rotateY(8deg) scale(1.05);
+}
+
+/* Animation for Neon Glow */
+@keyframes neonGlow {
+    0% {
+        filter: blur(3px);
+        opacity: 0.6;
+    }
+    100% {
+        filter: blur(6px);
+        opacity: 1;
+    }
+}
+
+
+/* Reviewer Info */
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.reviewer-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 3px solid #8be9fd;
+}
+
+/* Stars */
+.stars {
+    font-size: 18px;
+    color: #ffcc00;
+}
+/* Swiper Navigation */
+.swiper {
+    width: 80%;
+    height: auto;
+    padding: 50px;
+    overflow: hidden; /* Prevents row layout */
+}
+
+.swiper-wrapper {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #44475a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    min-width: 300px; /* Prevents stacking */
+}
+
+
+.swiper-button-prev, .swiper-button-next {
+    color: #8be9fd;
+    width: 50px;
+    height: 50px;
+    background: rgba(68, 71, 90, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease-in-out;
+}
+
+.swiper-button-prev:hover, .swiper-button-next:hover {
+    background: rgba(139, 233, 253, 0.8);
+}
+
+/* Swiper Pagination */
+.swiper-pagination-bullet {
+    background: #8be9fd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .testimonial-slider {
+        width: 90%;
+    }
+
+    .testimonial-card {
+        padding: 15px;
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+.leave-review {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: #44475a;
+    border-radius: 10px;
+    color: #f8f8f2;
+}
+
+.btn-review {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #50fa7b;
+    color: #282a36;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-review:hover {
+    background: #8be9fd;
+    color: #282a36;
+}
+
+/* Leave Review Button */
+.leave-review {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: #2c2f33;
+    border-radius: 10px;
+    color: #f8f8f2;
+}
+
+.btn-review {
+    padding: 10px 20px;
+    background: #ff9800;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn-review:hover {
+    background: #ff5722;
+}
+
+
+
+
+
+
+
+/* Review Popup */
+.review-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+    min-width: 100%;
+    height: 100%;
+    padding: 3rem;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.review-card {
+    background: #1e1f26;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(255, 152, 0, 0.3);
+    animation: slideUp 0.5s ease-in-out;
+}
+
+.close-btn {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ff5555;
+}
+
+h2 {
+    color: #ffcc00;
+}
+
+/* Star Rating */
+.stars {
+    width: 270px;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+input.star {
+    display: none;
+}
+
+label.star {
+    float: right;
+    padding: 5px;
+    font-size: 36px;
+    color: #444;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+label.star:before {
+    content: '\f005'; /* Solid star icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+/* Star Rating Colors */
+input.star:checked ~ label.star:before {
+    color: #ffcc00;
+    text-shadow: 0px 0px 10px #ffeb3b;
+}
+
+/* Hover Effect */
+label.star:hover, label.star:hover ~ label.star {
+    transform: scale(1.2);
+    color: #ff9800;
+}
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 12px;  /* Increased padding for better spacing */
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: #44475a;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensures padding doesn't overflow */
+}
+
+/* Textarea for reviews */
+textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: #44475a;
+    color: white;
+    font-size: 16px;
+    resize: none;
+    box-sizing: border-box; /* Prevents overflow */
+}
+
+/* Ensure the form elements are well-spaced */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+    font-size: 16px;
+}
+
+.btn-submit:hover {
+    background: #388e3c;
+}
+
+
+.response-popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #44475a;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 2000;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Modern Popup Styling */
+.modern-popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: auto;
+    max-width: 320px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modern-popup.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.popup-content {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    color: #333;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Success Style */
+.popup-content.success {
+    border-left: 5px solid #4caf50;
+    background-color: #e8f5e9;
+}
+
+/* Error Style */
+.popup-content.error {
+    border-left: 5px solid #f44336;
+    background-color: #ffebee;
+}
+
+.popup-icon {
+    font-size: 24px;
+}

@@ -1,0 +1,80 @@
+
+/* Main content will take the remaining width */
+main {
+    min-width: 80vw;
+    margin-left: 250px; /* Offset by sidebar width */
+    padding: 2rem;
+    overflow: auto; /* Allow scrolling if needed */
+    height: 100vh;
+}
+
+/* Plan cards section should scroll if content overflows */
+.plans {
+display: flex; /* Use flex layout */
+flex-direction: column;
+gap: 1.5rem; /* Space between grid items */
+margin-top: 2rem; /* Space above the grid */
+max-height: calc(100vh - 120px); /* Adjust based on header height */
+overflow-y: auto; /* Allow vertical scroll when the content overflows */
+padding: 2rem; /* Space at the bottom for scrolling */
+scroll-behavior: smooth;
+}
+
+/* Styling for individual plan cards */
+.plan-card {
+background-color: var(--color-white); /* White background for cards */
+border-radius: var(--card-border-radius); /* Rounded corners */
+padding: var(--card-padding); /* Padding inside the card */
+box-shadow: var(--box-shadow); /* Shadow effect */
+/* text-align: center; Center-align text */
+transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for plan cards */
+.plan-card:hover {
+transform: translateY(-10px); /* Slightly lift the card on hover */
+box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2); /* More intense shadow */
+}
+
+
+
+@media (max-width: 768px) {
+.container {
+grid-template-columns: 1fr; /* Stack the sidebar and main content */
+}
+aside {
+position: fixed;
+width: 70%; /* Adjust sidebar width for smaller screens */
+z-index: 100; /* Ensure sidebar stays on top */
+}
+main {
+margin-left: 0;
+}
+}
+/* ============================================ Personal Info card =================================================*/
+
+.plan-card h2{
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.8rem;
+}
+
+.plan-card .info{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+}
+.plan-card .info h4{
+    display: flex;
+    font-weight: 400;
+    font-size: 1.05rem;
+    gap: 1rem 2rem;
+}
+
+.plan-card .info .info{
+    display: flex;
+}
+
+
+
+
